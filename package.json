@@ -1,0 +1,14 @@
+{
+  "name": "@teitei/bravia-controller",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/teitei-tk/bravia-controller.git",
+  "author": "teitei-tk <teitei.tk@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "aws-iot-device-sdk": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/aws-iot-device-sdk": "^2.1.1"
+  }
+}
