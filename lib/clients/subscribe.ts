@@ -6,7 +6,7 @@ import Client from "./certificate";
 export const defaultOption = {
   host: process.env["ENDPOINT"],
   protocol: "mqtts",
-  clientId: `user-${Math.floor(Math.random() * 100000 + 1)}`,
+  clientId: process.env["CLIENT_ID"],
   baseReconnectTimeMs: 4000,
   keepalive: 300,
   debug: false
