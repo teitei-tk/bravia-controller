@@ -2,7 +2,7 @@ import "dotenv/config";
 
 import * as path from "path";
 
-export default class Client {
+export default class Certificate {
   path: string;
 
   constructor() {
