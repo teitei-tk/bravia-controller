@@ -41,5 +41,15 @@ export default class Subscribe {
     this.client.on("error", error => {
       console.error(error);
     });
+
+    process.on("SIGINT", () => {
+      console.log("Control + C");
+      process.exit(0);
+    });
+
+    process.on("exit", () => {
+      console.log("exit.");
+      process.exit(0);
+    });
   }
 }
