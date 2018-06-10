@@ -1,3 +1,4 @@
+import "dotenv/config";
 import * as iot from "aws-iot-device-sdk";
 
 import Client from "./certificate";
@@ -33,8 +34,8 @@ export default class Subscribe {
       console.log("start connection");
     });
 
-    this.client.on("message", (topic, payload) => {
-      console.log("message", topic, payload);
+    this.client.on("message", (topic: string, payload: Buffer) => {
+      console.log("message", topic, payload.toString());
     });
 
     this.client.on("error", error => {
