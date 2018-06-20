@@ -1,6 +1,6 @@
-import { Certificate, Subscribe } from "./clients";
+import { Certificate, Subscribe } from "../clients";
 
-export default class Subscriber {
+export class Subscriber {
   certificate: Certificate;
   subscribe: Subscribe;
 

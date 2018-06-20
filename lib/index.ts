@@ -1,3 +1,3 @@
-import Subscriber from "./subscriber";
+import { Subscriber } from "./subscribe";
 
 export { Subscriber };
