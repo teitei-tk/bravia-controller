@@ -16,6 +16,10 @@ export class Subscriber {
     this.client = new iot.thingShadow(opt);
   }
 
+  static initialize(): Subscriber {
+    return new Subscriber(new Certificate());
+  }
+
   subscription() {
     this.client.subscribe(subscriberName);
   }

@@ -1,3 +1,3 @@
 import { Subscriber } from "..";
 
-new Subscriber().subscription();
+Subscriber.initialize().subscription();
