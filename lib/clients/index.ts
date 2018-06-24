@@ -1,4 +1,3 @@
-import Certificate from "./certificate";
-import Subscribe from "./subscribe";
+import { Certificate } from "./certificate";
 
-export { Certificate, Subscribe };
+export { Certificate };

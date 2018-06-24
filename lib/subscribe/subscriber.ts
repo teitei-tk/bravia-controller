@@ -1,6 +1,6 @@
 import * as iot from "aws-iot-device-sdk";
 
-import { Certificate, Subscribe } from "../clients";
+import { Certificate } from "../clients";
 import { defaultOption, subscriberName } from "../options/subscriber";
 
 export class Subscriber {
