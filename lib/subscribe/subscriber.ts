@@ -22,6 +22,9 @@ export class Subscriber {
 
   subscription() {
     this.client.subscribe(subscriberName);
+    console.log("start subscribe!");
+
+    this.run();
   }
 
   run() {
@@ -31,6 +34,14 @@ export class Subscriber {
 
     this.client.on("message", (topic: string, payload: Buffer) => {
       console.log("message", topic, payload.toString());
+    });
+
+    this.client.on("reconnect", () => {
+      console.log("reconnect...");
+    });
+
+    this.client.on("offline", () => {
+      console.log("status offline");
     });
 
     this.client.on("error", error => {
