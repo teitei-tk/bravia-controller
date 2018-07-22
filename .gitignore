@@ -60,4 +60,7 @@ typings/
 # next.js build output
 .next
 
+# security keys
 certs/**/*.pem
+certs/**/*.key
+certs/**/*.crt
