@@ -21,15 +21,10 @@ export class Subscriber {
   }
 
   subscription() {
-    this.client.subscribe(subscriberName);
-    console.log("start subscribe!");
-
-    this.run();
-  }
-
-  run() {
     this.client.on("connect", () => {
       console.log("start connection");
+      this.client.subscribe(subscriberName);
+      console.log("start subscribe!");
     });
 
     this.client.on("message", (topic: string, payload: Buffer) => {
