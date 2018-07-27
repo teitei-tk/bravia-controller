@@ -3,9 +3,10 @@ import "dotenv/config";
 import { APIGatewayEvent, Callback, Context, Handler } from "aws-lambda";
 import * as AWS from "aws-sdk";
 
+AWS.config.update({ region: process.env["REGION"] });
+
 const iot = new AWS.IotData({
-  endpoint: process.env["ENDPOINT"],
-  region: process.env["REGION"]
+  endpoint: process.env["ENDPOINT"]
 });
 
 const params = {
@@ -14,7 +15,7 @@ const params = {
   qos: 0
 };
 
-iot.publish(params, (err, data) => {
+iot.publish(params, (err: any, data) => {
   if (err) {
     console.log("err");
     console.error(err);
