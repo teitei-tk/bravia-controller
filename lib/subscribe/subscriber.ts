@@ -4,7 +4,7 @@ import { Certificate } from "../clients";
 import { defaultOption, subscriberName } from "../options/subscriber";
 
 export class Subscriber {
-  client: iot.thingShadow;
+  client: iot.device;
 
   constructor(certificateClient: Certificate) {
     const opt = Object.assign({}, defaultOption, {
@@ -13,7 +13,7 @@ export class Subscriber {
       caPath: certificateClient.rootPath()
     });
 
-    this.client = new iot.thingShadow(opt);
+    this.client = new iot.device(opt);
   }
 
   static initialize(): Subscriber {
@@ -23,12 +23,12 @@ export class Subscriber {
   subscription() {
     this.client.on("connect", () => {
       console.log("start connection");
-      this.client.subscribe(subscriberName);
+      this.client.subscribe(subscriberName, { qos: 1 });
       console.log("start subscribe!");
     });
 
     this.client.on("message", (topic: string, payload: Buffer) => {
-      console.log("message", topic, payload.toString());
+      console.log(`topic:${topic}, message: ${payload.toString()}`);
     });
 
     this.client.on("reconnect", () => {
