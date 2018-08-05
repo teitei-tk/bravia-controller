@@ -28,4 +28,10 @@ export class Publisher {
       console.log("published!");
     });
   }
+
+  publishWithCallback(payload: string, callback: (err: any) => void) {
+    this.client.on("connect", () => {
+      this.client.publish(subscriberName, payload, { qos: 1 }, callback);
+    });
+  }
 }
